@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Task app</title>
+        <link rel="stylesheet" href="/css/styles.css">
+    </head>
+    <body>
+        <div class="main-contetn">
+            {{>header}}
+            <h3>Profile</h3>
+            <p id="profile"></p>
+        </div>
+
+        <p id="logout"></p>
+
+        {{!-- <form action="/users/logoutAll" method="post">
+            <button type="submit" class="button">Logout all devices</button>
+        </form> --}}
+        <script src="/js/user.js"></script>
+    </body>
+</html>

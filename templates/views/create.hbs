@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Task App</title>
+        <link rel="stylesheet" href="/css/styles.css">
+    </head>
+
+    <body>
+        <div class="main-content">
+            {{>header}}
+
+            <form id="create-user" class="loginForm">
+
+                <label for="name"><b>Full name</b></label>
+                <input type="text" placeholder="Enter Full Name" name="name" id="newname" required>
+
+                <label for="mail"><b>E-mail</b></label>
+                <input type="text" placeholder="Enter E-mail" name="mail" id="newmail" required>
+
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" id="newpass" required>
+
+                <label for="age"><b>Age</b></label>
+                <input type="password" placeholder="Enter Age" name="age" id="newage">
+
+                <br>
+
+                <div style="text-align: center;">
+                     <button class="main" type="submit">Create</button>
+                </div>
+               
+            </form>
+
+            <p id="message-1"></p>
+            {{message}}
+
+        </div>
+        {{>footer}}
+
+        <script src="/js/create.js"></script>
+    </body>
+
+</html>

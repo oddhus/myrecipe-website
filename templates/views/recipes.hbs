@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Task app</title>
+        <link rel="stylesheet" href="/css/styles.css">
+    </head>
+
+    <body>
+        <div class="main-content">
+            {{>header}}
+
+            <h3>Recipes</h3>
+
+            <div>
+                <input type="text" id="search-text" placeholder="search in recipes and ingredients" class="main">
+
+                <select id="filter-by" class="dropdown">
+                    <option value="updatedAt"> Sort by last edited</option>
+                    <option value="title"> Sort by alphabetically</option>
+                    <option value="createdAt"> Sort by recently created</option>
+                </select>
+                <select id="order" class="dropdown">
+                    <option value="desc">Desccending</option>
+                    <option value="asc">Ascending</option>
+                </select>
+            </div>
+
+            <p id="recipe"></p>
+            
+            <p id="createrecipe"></p>
+
+        </div>
+
+        {{message}}
+
+        {{>footer}}
+        
+        <script src="/js/recipe.js"></script>
+    </body>
+</html>

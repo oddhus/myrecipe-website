@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Task App</title>
+        <link rel="stylesheet" href="/css/styles.css">
+    </head>
+
+    <body>
+        <div class="main-content">
+            {{>header}}
+
+                <input type="text" placeholder="Title" name="title" id="newtitle">
+
+                <textarea type="text" placeholder="Preparation" name="des" id="newtext" class="body-input"></textarea>
+                <div>
+                    <div id="ingredients"></div>
+                    <span id="add-ingredient"></span>
+                    <button class="main" type="submit" id="add-ingredient-btn" style="width: 10%">Add</button>
+                </div>
+
+                <div style="text-align: center;">
+                    
+                    <button class="main" type="submit" id="save-recipe">Save</button>
+                    <button type="submit" id="delete-recipe">Delete</button>
+                </div>
+
+
+            <p id="message-1"></p>
+            {{message}}
+
+        </div>
+        {{>footer}}
+
+        <script src="/js/createrecipe.js"></script>
+    </body>
+
+</html>

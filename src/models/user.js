@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const validator = require('validator')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
-const Task = require('./tasks')
+const Recipe = require('./recipe')
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -45,7 +45,8 @@ const userSchema = new mongoose.Schema({
     tokens: [{
         token: {
             type: String,
-            required: true
+            required: true,
+            createdAt: { type: Date, expires: '1m', default: Date.now }
         }
     }],
     avatar: {
@@ -56,11 +57,14 @@ const userSchema = new mongoose.Schema({
     timestamps: true
 })
 
-userSchema.virtual('tasks', {
-    ref: 'Task',
+userSchema.virtual('recipes', {
+    ref: 'Recipe',
     localField: '_id',
     foreignField: 'owner'
 })
+
+userSchema.set('toJSON', { virtuals: true }) 
+userSchema.set( 'toObject', { virtuals: true })
 
 userSchema.methods.toJSON = function () {
     const user = this
@@ -75,7 +79,7 @@ userSchema.methods.toJSON = function () {
 
 userSchema.methods.generateAuthToken = async function () {
     const user = this
-    const token = jwt.sign( {_id: user._id.toString() }, process.env.JWT_SECRET)
+    const token = jwt.sign( {_id: user._id.toString() }, process.env.JWT_SECRET, { expiresIn: '1h' })
     
     user.tokens = user.tokens.concat({ token })
     await user.save()
@@ -113,7 +117,7 @@ userSchema.pre('save', async function(next) {
 //Delete user tasks when user is removed
 userSchema.pre('remove', async function(next) {
     const user = this
-    await Task.deleteMany({owner: user._id})
+    await Recipe.deleteMany({owner: user._id})
     next()
 }) 
 

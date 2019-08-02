@@ -1,0 +1,150 @@
+body {
+    color: #333333;
+    font-family: arial;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.body-input {
+    border: 1px solid #DEDFE0;
+    font-family: inherit;
+    font-size: 0.85rem;
+    display: block;
+    margin: 1rem 0;
+    min-height: 10rem;
+    padding: 10px;
+    width: 97%;
+}
+
+.loginForm {
+    max-width: 400px;
+    margin: 0 auto;
+    padding-top: 20px
+}
+
+.loginForm__btn {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.main-content {
+    flex-grow: 1;
+}
+
+.input-content {
+    max-width: 200px;
+    vertical-align: middle
+}
+
+footer {
+    color: #888888;
+    border-top: 1px solid #eeeeee;
+    margin-top: 16px;
+    padding: 16px 0;
+}
+
+header {
+    margin-top: 16px;
+    margin-bottom: 16;
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    vertical-align: middle
+  }
+
+
+h1 {
+    font-size: 64px;
+    margin-bottom: 16px;
+}
+
+header a {
+    color: #888888;
+    margin-right: 16px;
+    text-decoration: none;
+}
+
+.portrait {
+    width: 200px;
+}
+
+input {
+    border: 1px solid #cccccc;
+    padding: 8px;
+    vertical-align: middle
+}
+
+button {
+    cursor: pointer;
+    border: 1px solid #888888;
+    background: #888888;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    vertical-align: middle
+}
+
+.main {
+    margin-top: 10px;
+    margin-bottom: 10px
+}
+
+.search__btn {
+    width: 10%
+}
+
+.logout {
+    background:none;
+    color:#888888;
+    border:none; 
+    padding:0!important;
+    font: inherit;
+    cursor: pointer;
+}
+
+.logoutLblPos{
+    float: right;
+    padding: 10px;
+    margin: -0.5em 0;
+}
+
+.button--text {
+    background: none;
+    border: none;
+    color: #aaa;
+    width: 10%;
+    float: right;
+}
+
+p {
+    padding: 1px;
+    text-align: center
+}
+
+.left {
+    text-align: left;
+}
+
+label {
+    text-decoration-color: #333333
+}
+
+.list-label {
+    font-size: 80%;
+    font-style: italic;
+    margin-left: 20px
+}
+
+textarea {
+    margin: 10px
+}

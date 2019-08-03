@@ -1,6 +1,6 @@
 sessionStorage.clear()
 
-const createUser = async (name, email, password, age) => {
+const createUser = async (name, email, password, date) => {
 
     const message1 = document.querySelector('#message-1')
     message1.textContent = 'Loading...'
@@ -16,7 +16,7 @@ const createUser = async (name, email, password, age) => {
                 name,
                 email,
                 password,
-                age
+                date
             })
         })
 
@@ -34,10 +34,11 @@ const createUserEl = document.querySelector('#create-user')
 const name = document.querySelector('#newname')
 const mail = document.querySelector('#newmail')
 const password = document.querySelector('#newpass')
-const age = document.querySelector('#newage')
+const date = document.querySelector('#newdate')
 
 createUserEl.addEventListener('submit', (e) => {
     e.preventDefault()
-    createUser(name.value, mail.value, password.value, age.value)
+    createUser(name.value, mail.value, password.value, date.value)
+    console.log(date.value)
     
 })

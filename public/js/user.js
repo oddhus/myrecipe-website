@@ -15,7 +15,7 @@ const initializeUserPage = async () => {
         })
 
         const data = await rawResponse.json()
-        profileEl.textContent = `Name: ${data.name}. Age: ${data.age}. Email: ${data.email}`
+        profileEl.textContent = `Name: ${data.name}. Date of birth: ${data.date.substr(0,10)}. Email: ${data.email}`
 
         const button = document.createElement("button")
         button.innerHTML = "Logout of all devices"

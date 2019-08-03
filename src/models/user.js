@@ -22,12 +22,12 @@ const userSchema = new mongoose.Schema({
             }
         }
     },
-    age: {
-        type: Number,
+    date: {
+        type: Date,
         default: 0,
         validate(value) {
             if (value < 0) {
-                throw new Error('Age must be a positive number')
+                throw new Error('Date must be a positive number')
             }
         }
     },

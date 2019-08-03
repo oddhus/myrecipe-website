@@ -229,7 +229,6 @@ const savetoDB = async () => {
                 headers: {
                     'Accept': '*/*',
                     'Content-Type': 'application/json',
-                    credentials: 'same-origin'
                 },
                 body: JSON.stringify({
                     title: recipe.title,

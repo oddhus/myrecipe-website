@@ -200,8 +200,6 @@ const savetoDB = async () => {
 
     const recipeID = window.location.pathname.replace('/createrecipe', '')
 
-    console.log(recipeID)
-
     try {
         if (recipeID) {
             const rawResponse =  await fetch('/recipes' + recipeID, {
@@ -231,6 +229,7 @@ const savetoDB = async () => {
                 headers: {
                     'Accept': '*/*',
                     'Content-Type': 'application/json',
+                    credentials: 'same-origin'
                 },
                 body: JSON.stringify({
                     title: recipe.title,

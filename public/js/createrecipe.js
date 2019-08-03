@@ -198,11 +198,13 @@ const addIngredient = () => {
 
 const savetoDB = async () => {
 
-    const recipeID = window.location.pathname.replace('/createrecipe/', '')
+    const recipeID = window.location.pathname.replace('/createrecipe', '')
+
+    console.log(recipeID)
 
     try {
         if (recipeID) {
-            const rawResponse =  await fetch('/recipes/' + recipeID, {
+            const rawResponse =  await fetch('/recipes' + recipeID, {
                 method: 'PATCH',
                 headers: {
                     'Accept': '*/*',
@@ -223,6 +225,7 @@ const savetoDB = async () => {
             }
     
         } else {
+
             const rawResponse =  await fetch('/recipes', {
                 method: 'POST',
                 headers: {

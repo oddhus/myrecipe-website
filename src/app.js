@@ -28,7 +28,7 @@ app.use(session({
     secret: String(process.env.SESSION_SECRET),
     resave: false,
     saveUninitialized: true,
-    cookie: {secure: false, maxAge: 6000 }}));
+    cookie: {secure: true, maxAge: 6000 }}));
 app.use(flash());
 
 app.use(express.static(publicDirectoryPath))

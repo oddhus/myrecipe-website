@@ -15,7 +15,7 @@ router.post('/users', async (req, res) => {
         res.cookie('access_token', token, { maxAge: 1000*60*60, httpOnly: true })
         res.status(201).send({user})
     } catch (error) {
-        res.status(400).send(error)
+        res.status(400).send({message: error.message})
     }
     
 })

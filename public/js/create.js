@@ -20,12 +20,19 @@ const createUser = async (name, email, password, date) => {
             })
         })
 
-        message1.textContent = 'Success!'
-        location.replace('/user')
+        if (rawResponse.status === 201){
+            message1.textContent = 'Success!'
+            location.replace('/user')
+            return
+        }
+
+        data = await rawResponse.json()
+
+        message1.textContent = `Error: ${data.message}`
 
 
     } catch (error) {
-        message1.textContent = 'Failed'
+        message1.textContent = error
     }
     
 }

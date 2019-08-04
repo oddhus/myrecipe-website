@@ -3,8 +3,6 @@ const searchTextEl = document.querySelector('#search-text')
 const filterEl = document.querySelector('#filter-by')
 const orderEl = document.querySelector('#order')
 
-sessionStorage.clear()
-
 let recipes = []
 
 const filters = {

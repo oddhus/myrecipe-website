@@ -47,6 +47,7 @@ let recipe = []
 let ingredients = []
 
 const printIngredients = () => {
+    ingredients = loadIngredients()
     ingredientList.innerHTML= ''
     if (ingredients.length > 0) {
         ingredients.forEach(ingredient => {
@@ -100,6 +101,7 @@ const importFromDB = async () => {
                     titleEl.value = data.title
                     preparationEl.value = data.preparation
                     printIngredients()
+                    saveRecipe()
                 } catch (error) {
                     console.log(error)
                 }

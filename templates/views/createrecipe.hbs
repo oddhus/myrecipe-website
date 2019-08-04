@@ -10,9 +10,14 @@
         <div class="main-content">
             {{>headerAuth}}
 
-                <input type="text" placeholder="Title" name="title" id="newtitle">
+                <label for="title"><b>Title</b> <small>(required)</small></label>
+                <input type="text" placeholder="Title" name="title" id="newtitle"  style="margin-top: 0px">
 
-                <textarea type="text" placeholder="Preparation" name="des" id="newtext" class="body-input"></textarea>
+                <label for="des"><b>Preparation</b> <small>(required)</small></label>
+                <textarea type="text" placeholder="Preparation" name="des" id="newtext" class="body-input" style="margin-top: 0px"></textarea>
+
+                <label for="ingredients"><b>Ingredients</b></label>
+                <hr class="ingredients">
                 <div>
                     <div id="ingredients"></div>
                     <span id="add-ingredient"></span>

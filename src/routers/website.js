@@ -2,19 +2,48 @@ const express = require('express')
 const router = new express.Router()
 const jwt = require('jsonwebtoken')
 const User = require('../models/user')
+const checkLogin = require('../middleware/checkLogin')
 
-router.get('/', (req, res) => {
-    res.render('index', {
-        title: 'My Recipes',
-        name: 'Oddmund H',
-        message: req.flash('message')
-    })
+router.get('/', checkLogin, async (req, res) => {
+    try {
+        if (req.isLoggedIn) {
+            res.render('authIndex', {
+                title: 'My Recipes',
+                name: 'Oddmund H',
+            }) 
+        } else {
+            res.render('index', {
+                title: 'My Recipes',
+                name: 'Oddmund H',
+                message: ''
+            }) 
+        }
+         
+    } catch (error) {
+        console.log(error)
+    }
+    
+
+    
 })
 
-router.get('/user', (req, res) => {
-    res.render('user', {
-        title: 'My Recipes'
-    })
+router.get('/user',checkLogin, async (req, res) => {
+    try {
+        if (req.isLoggedIn) {
+            res.render('user', {
+                title: 'My Recipes'
+            })
+        } else {
+            res.render('unauthPage', {
+                title: 'My Recipes',
+                name: 'Oddmund H',
+                message: 'Please log in'
+            }) 
+        }
+         
+    } catch (error) {
+        console.log(error)
+    }
 })
 
 router.get('/about', (req, res) => {
@@ -23,48 +52,89 @@ router.get('/about', (req, res) => {
     })
 })
 
-router.get('/myrecipes', (req, res) => {
-    res.render('recipes', {
-        title: 'My Recipes',
-        message: req.flash('message')
-    })
-})
-
-router.get('/createuser', (req, res) => {
-    async function checkUser() {
-        if (req.cookies.access_token || req.header('Authorization')){
-        const token = req.cookies.access_token || req.header('Authorization').replace('Bearer ', '')
-        const decoded = jwt.verify(token, process.env.JWT_SECRET)
-        const user = await User.findOne({_id: decoded._id, 'tokens.token': token})
-            if(user){
-                req.flash('message', 'You cannot create user while logged in')
-                res.redirect('/')
-            }
+router.get('/myrecipes', checkLogin, async (req, res) => {
+    try {
+        if (req.isLoggedIn) {
+            res.render('recipes', {
+                title: 'My Recipes',
+                name: 'Oddmund H'
+            })
+        } else {
+            res.render('unauthPage', {
+                title: 'My Recipes',
+                name: 'Oddmund H',
+                message: 'Please log in'
+            }) 
         }
+         
+    } catch (error) {
+        console.log(error)
     }
 
-    checkUser()
-
-    res.render('create', {
-        title: 'My Recipes',
-        message: req.flash('message')
-    })
 })
 
-router.get('/createrecipe', (req, res) => {
-    
-    res.render('createrecipe', {
-        title: 'My Recipes',
-        message: req.flash('message')
-    })
+router.get('/createuser', checkLogin, async (req, res) => {
+    try {
+        if (!req.isLoggedIn) {
+            res.render('create', {
+                title: 'My Recipes',
+                name: 'Oddmund H'
+            })
+        } else {
+            res.render('unauthPage', {
+                title: 'My Recipes',
+                name: 'Oddmund H',
+                message: 'You cannot create a user while logged in!'
+            }) 
+        }
+         
+    } catch (error) {
+        console.log(error)
+    }
+        
 })
 
-router.get('/createrecipe/:id', (req, res) => {
-    
-    res.render('createrecipe', {
-        title: 'My Recipes',
-        message: req.flash('message')
-    })
+router.get('/createrecipe', checkLogin, async (req, res) => {
+    try {
+        if (req.isLoggedIn) {
+            res.render('createrecipe', {
+                title: 'My Recipes',
+                name: 'Oddmund H'
+            })
+
+        } else {
+            res.render('unauthPage', {
+                title: 'My Recipes',
+                name: 'Oddmund H',
+                message: 'Plese log in to create an recipe'
+            }) 
+        }
+         
+    } catch (error) {
+        console.log(error)
+    }
+
+})
+
+router.get('/createrecipe/:id', checkLogin, async (req, res) => {
+    try {
+        if (req.isLoggedIn) {
+            res.render('createrecipe', {
+                title: 'My Recipes',
+                name: 'Oddmund H'
+            })
+
+        } else {
+            res.render('unauthPage', {
+                title: 'My Recipes',
+                name: 'Oddmund H',
+                message: 'Plese log in to create an recipe'
+            }) 
+        }
+         
+    } catch (error) {
+        console.log(error)
+    }
 })
 
 

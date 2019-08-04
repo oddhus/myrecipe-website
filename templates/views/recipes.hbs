@@ -8,11 +8,13 @@
 
     <body>
         <div class="main-content">
-            {{>header}}
-
-            <h3>Recipes</h3>
+            {{>headerAuth}}
 
             <div>
+                <form action="/createrecipe" method="GET">
+                    <button class="main" type="submit">Create Recipe</button>
+                </form>
+                
                 <input type="text" id="search-text" placeholder="search in recipes and ingredients" class="main">
 
                 <select id="filter-by" class="dropdown">

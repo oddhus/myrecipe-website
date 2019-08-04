@@ -23,8 +23,6 @@ const loginUser = async (email, password) => {
         }
 
         if (rawResponse.status === 201) {
-            const data = await rawResponse.json()
-            sessionStorage.setItem('token', data.token)
             location.replace('/myrecipes')
         }
 

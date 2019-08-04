@@ -8,11 +8,14 @@
 
     <body>
         <div class="main-content">
-            {{>header}}
-            <p>Create your own digital recipe book with searchable ingredients. Sign up now!</p>
+            {{>headerNone}}
+            <p>Create your own digital recipe book with searchable ingredients. Sign up now or log in!</p>
 
+            
+            
             <form id="login-user" class="loginForm">
-                <label for="uname"><b>E-mail</b></label>
+                <h5 style="text-align: center; margin: 10px">Already have an user? Log in below</h5>
+                <label for="uname" style="margin: 10px"><b>E-mail</b></label>
                 <input type="text" placeholder="Enter E-mail" name="uname" id="username" required>
 
                 <label for="psw"><b>Password</b></label>
@@ -23,19 +26,18 @@
                 </div>
             </form>
 
-            
+            <p style="color: red" id="message-1">{{message}}</p>
+
             <form action="/createuser" method="GET" class="loginForm__btn">
+                <h5 style="text-align: center; margin: 10px; padding-top: 20px">New to this site? Create an user!</h5>
                 <div style="text-align: center;">
-                    <button class="main" type="submit">Create user</button>
+                    <button class="main" type="submit" style="margin: 0px">Create user</button>
                 </div>
             </form>
             
 
-            <p style="color: red" id="message-1">{{message}}</p>
             
-
             
-
         </div>
         {{>footer}}
 

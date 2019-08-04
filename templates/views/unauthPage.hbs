@@ -2,16 +2,21 @@
 
 <html>
     <head>
-        <title>About</title>
+        <title>Task App</title>
         <link rel="stylesheet" href="/css/styles.css">
     </head>
 
     <body>
         <div class="main-content">
-            {{>headerNone}}
-            <p>This website and API was created by Oddmund Huseby. </p>
-            <img class="portrait" src="./img/robot.jfif">
+            {{>headerUnauth}}
+            
+            <div class="center">
+                <p>{{message}}</p>
+            </div>
+            
         </div>
         {{>footer}}
+
     </body>
+
 </html>

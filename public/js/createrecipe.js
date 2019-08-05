@@ -47,7 +47,9 @@ let recipe = []
 let ingredients = []
 
 const printIngredients = () => {
-    ingredients = loadIngredients()
+    if (!ingredients) {
+        ingredients = loadIngredients()
+    }
     ingredientList.innerHTML= ''
     if (ingredients.length > 0) {
         ingredients.forEach(ingredient => {

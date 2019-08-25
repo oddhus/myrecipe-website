@@ -69,6 +69,7 @@ const renderRecipes = async (filters, recipes) => {
 
         recipe.setAttribute('href', '/createrecipe/' + element._id)
         recipe.textContent = element.title
+        recipe.classList.add('recipeBtn')
 
         listEl.appendChild(recipe)
         recipeEl.appendChild(listEl)

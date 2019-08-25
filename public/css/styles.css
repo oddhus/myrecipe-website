@@ -173,3 +173,20 @@ hr {overflow: visible; /* For IE */
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
+
+.recipeBtn {
+    display: inline-block;
+    width: 60%;
+    height: 25px;
+    background: #888888;
+    padding: 10px;
+    text-align: center;
+    border-radius: 0px;
+    color: white;
+    font-style: italic;
+    font-size: 120%
+}
+  
+.recipeBtn:hover, .recipeBtn:active {
+    background-color: rgb(110, 110, 110);
+}
